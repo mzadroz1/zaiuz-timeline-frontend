@@ -7,7 +7,7 @@ import {LoginResponse} from "../models/login-response";
 @Injectable({
   providedIn: 'root'
 })
-export class LoginServiceService {
+export class LoginService {
 
   private loginUrl = 'https://zaiuz-timeline.herokuapp.com/public/index.php/login'
 
