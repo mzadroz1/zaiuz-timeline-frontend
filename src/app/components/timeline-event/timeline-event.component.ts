@@ -8,6 +8,8 @@ import {LoginComponent} from "../login/login.component";
 import {TimelineEventCreateComponent} from "../timeline-event-create/timeline-event-create.component";
 import {TimelineEventEditComponent} from "../timeline-event-edit/timeline-event-edit.component";
 import {TimelineEventDeleteComponent} from "../timeline-event-delete/timeline-event-delete.component";
+import {CookieService} from "ngx-cookie-service";
+import jwtDecode from 'jwt-decode'
 
 @Component({
   selector: 'app-timeline-event',
@@ -21,6 +23,7 @@ export class TimelineEventComponent implements OnInit {
 
   constructor(private timelineEventService: TimelineEventService,
               private eventTypeService: EventTypeService,
+              private cookieService: CookieService,
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -78,5 +81,15 @@ export class TimelineEventComponent implements OnInit {
       data: item,
       width: '500px'
     });
+  }
+
+  isUserLoggedIn() : boolean {
+    let token = this.cookieService.get('access_token');
+    // @ts-ignore
+    return token !== null && token !== '' && (jwtDecode(token).exp as number) >= Date.now() / 1000
+  }
+
+  logout() {
+    this.cookieService.delete('access_token');
   }
 }

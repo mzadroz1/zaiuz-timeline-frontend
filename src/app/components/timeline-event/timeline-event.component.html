@@ -1,6 +1,8 @@
-<button mat-raised-button (click)="openLoginDialog()">Login</button>
+<button *ngIf="!isUserLoggedIn()" mat-raised-button (click)="openLoginDialog()">Login</button>
 
-<button mat-raised-button (click)="openCreateEvent()">Create Event</button>
+<button *ngIf="isUserLoggedIn()" mat-raised-button (click)="openCreateEvent()">Create Event</button>
+
+<button *ngIf="isUserLoggedIn()" mat-raised-button (click)="logout()">Logout</button>
 
 <div class="content-panel">
       <mat-card>
@@ -48,11 +50,11 @@
                   <div class="button-row">
                     <div class="flex-container">
                       <div class="button-container">
-                        <button mat-mini-fab color="accent" aria-label="Edit"
+                        <button *ngIf="isUserLoggedIn()" mat-mini-fab color="accent" aria-label="Edit"
                                 (click)="openEditDialog(item)">
                           <mat-icon>edit</mat-icon>
                         </button>
-                        <button mat-mini-fab color="warn" aria-label="Delete"
+                        <button *ngIf="isUserLoggedIn()" mat-mini-fab color="warn" aria-label="Delete"
                                 (click)="openDeleteDialog(item)">
                           <mat-icon>delete</mat-icon>
                         </button>

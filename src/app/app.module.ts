@@ -28,6 +28,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDialogModule} from "@angular/material/dialog";
 import { TimelineEventEditComponent } from './components/timeline-event-edit/timeline-event-edit.component';
 import { TimelineEventDeleteComponent } from './components/timeline-event-delete/timeline-event-delete.component';
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -39,30 +40,31 @@ import { TimelineEventDeleteComponent } from './components/timeline-event-delete
     TimelineEventEditComponent,
     TimelineEventDeleteComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    RouterOutlet,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatTabsModule,
-    NgxMatTimelineModule,
-    MatRadioModule,
-    MatCheckboxModule,
-    FormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatOptionModule,
-    MatSelectModule,
-    MatExpansionModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        RouterOutlet,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatTabsModule,
+        NgxMatTimelineModule,
+        MatRadioModule,
+        MatCheckboxModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatExpansionModule,
+        MatDialogModule,
+        MatChipsModule
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true}
   ],

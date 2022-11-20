@@ -39,10 +39,16 @@
         <div>
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="Password" formControlName="password" required>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Password" formControlName="password" required>
+            <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+              <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
             <mat-error>Please enter a password</mat-error>
           </mat-form-field>
         </div>
+        <mat-chip *ngIf="invalidLogin" color='warn'>
+          Invalid username or password
+        </mat-chip>
         <div mat-dialog-actions>
           <button mat-raised-button color="primary">Login</button>
         </div>

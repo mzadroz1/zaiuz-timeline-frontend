@@ -14,6 +14,8 @@ import {MatDialogRef} from "@angular/material/dialog";
 export class LoginComponent implements OnInit {
 
   loginFormGroup: FormGroup
+  invalidLogin: boolean
+  hidePassword: boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,7 +46,9 @@ export class LoginComponent implements OnInit {
       next: response => {
         this.cookieService.set("access_token", response.access_token.toString());
         this.dialogRef.close();
-        window.location.reload();
+      },
+      error: () => {
+        this.invalidLogin = true;
       }
     })
 
