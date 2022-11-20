@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CookieService} from "ngx-cookie-service";
 import {LoginRequest} from "../../models/login-request";
 import {LoginService} from "../../services/login.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private cookieService: CookieService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    public dialogRef: MatDialogRef<LoginComponent>
   ) {
     this.loginFormGroup = formBuilder.group(
       {

@@ -3,6 +3,10 @@ import {TimelineEvent} from "../../models/timeline-event";
 import {TimelineEventService} from "../../services/timeline-event.service";
 import {EventType} from "../../models/event-type";
 import {EventTypeService} from "../../services/event-type.service";
+import {MatDialog} from "@angular/material/dialog";
+import {LoginComponent} from "../login/login.component";
+import {TimelineEventCreateComponent} from "../timeline-event-create/timeline-event-create.component";
+import {TimelineEventEditComponent} from "../timeline-event-edit/timeline-event-edit.component";
 
 @Component({
   selector: 'app-timeline-event',
@@ -15,7 +19,8 @@ export class TimelineEventComponent implements OnInit {
   eventTypeList: EventType[] = [];
 
   constructor(private timelineEventService: TimelineEventService,
-              private eventTypeService: EventTypeService) { }
+              private eventTypeService: EventTypeService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getTimelineEventList();
@@ -44,5 +49,27 @@ export class TimelineEventComponent implements OnInit {
 
   isEventStartDateEqualToEventEndDate(timelineEvent: TimelineEvent) : boolean {
     return timelineEvent.event_start_date === timelineEvent.event_end_date;
+  }
+
+  openLoginDialog(): void {
+    let dialogRef = this.dialog.open(LoginComponent);
+
+  }
+
+  openCreateEvent(): void {
+    this.dialog.open(TimelineEventCreateComponent);
+  }
+
+  openEditDialog(item: TimelineEvent) {
+    this.dialog.open(TimelineEventEditComponent, {
+      data: {
+        timelineEvent: item,
+        eventTypeList: this.eventTypeList
+      }
+    })
+  }
+
+  openDeleteDialog() {
+
   }
 }

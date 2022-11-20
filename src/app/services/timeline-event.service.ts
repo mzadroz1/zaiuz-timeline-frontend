@@ -26,4 +26,12 @@ export class TimelineEventService {
     return this.httpClient.post<TimelineEventResponse>(this.timelineEventListUrl, timelineEventRequest);
   }
 
+  editTimelineEvent(timelineEventRequest: TimelineEventRequest, timelineEventId: number): Observable<TimelineEventResponse> {
+    return this.httpClient.put<TimelineEventResponse>(this.timelineEventListUrl + '/' + timelineEventId, timelineEventRequest);
+  }
+
+  deleteTimelineEvent(timelineEventId: number): Observable<TimelineEventResponse> {
+    return this.httpClient.delete<TimelineEventResponse>(this.timelineEventListUrl + '/' + timelineEventId);
+  }
+
 }

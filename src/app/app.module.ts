@@ -25,6 +25,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from "@angular/material/select";
 import {MatExpansionModule} from "@angular/material/expansion";
+import {MatDialogModule} from "@angular/material/dialog";
+import { TimelineEventEditComponent } from './components/timeline-event-edit/timeline-event-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,31 +34,33 @@ import {MatExpansionModule} from "@angular/material/expansion";
     EventTypesComponent,
     LoginComponent,
     TimelineEventComponent,
-    TimelineEventCreateComponent
+    TimelineEventCreateComponent,
+    TimelineEventEditComponent
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-        RouterOutlet,
-        BrowserAnimationsModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatCardModule,
-        MatButtonModule,
-        MatTabsModule,
-        NgxMatTimelineModule,
-        MatRadioModule,
-        MatCheckboxModule,
-        FormsModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatOptionModule,
-        MatSelectModule,
-        MatExpansionModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    RouterOutlet,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatTabsModule,
+    NgxMatTimelineModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatExpansionModule,
+    MatDialogModule
+  ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true}
   ],

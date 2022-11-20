@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CookieService} from "ngx-cookie-service";
@@ -6,6 +6,7 @@ import {TimelineEventService} from "../../services/timeline-event.service";
 import {TimelineEventRequest} from "../../models/timeline-event-request";
 import {EventType} from "../../models/event-type";
 import {EventTypeService} from "../../services/event-type.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-timeline-event-create',
@@ -24,7 +25,8 @@ export class TimelineEventCreateComponent {
     private route: ActivatedRoute,
     private cookieService: CookieService,
     private timelineEventService: TimelineEventService,
-    private eventTypeService: EventTypeService
+    private eventTypeService: EventTypeService,
+    public dialogRef: MatDialogRef<TimelineEventCreateComponent>
   ) {
     this.timelineEventFormGroup = formBuilder.group(
       {

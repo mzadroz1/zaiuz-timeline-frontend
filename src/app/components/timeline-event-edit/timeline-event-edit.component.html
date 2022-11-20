@@ -1,7 +1,7 @@
 <div mat-dialog-content>
-  <form [formGroup]="timelineEventFormGroup" (ngSubmit)="createTimelineEvent()">
+  <form [formGroup]="timelineEventFormGroup" (ngSubmit)="editTimelineEvent()">
     <mat-card>
-      <mat-card-title>Create new event!</mat-card-title>
+      <mat-card-title>Edit event!</mat-card-title>
       <mat-card-content>
         <div>
           <mat-form-field appearance="outline">
@@ -48,15 +48,15 @@
             <mat-label>Event type</mat-label>
             <mat-select formControlName="event_type_name">
               <mat-option *ngFor="let eventType of eventTypeList" [value]="eventType.event_type_name">
-                  <mat-label>
-                    {{eventType.event_type_name}} <div class="timeline-event-type-icon" [ngStyle]="{'background': eventType.color}"></div>
-                  </mat-label>
+                <mat-label>
+                  {{eventType.event_type_name}} <div class="timeline-event-type-icon" [ngStyle]="{'background': eventType.color}"></div>
+                </mat-label>
               </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div mat-dialog-actions>
-          <button mat-raised-button color="primary">Create Event</button>
+          <button mat-raised-button color="primary">Edit Event</button>
         </div>
       </mat-card-content>
     </mat-card>

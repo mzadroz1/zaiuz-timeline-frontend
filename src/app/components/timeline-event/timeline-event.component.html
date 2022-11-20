@@ -1,3 +1,6 @@
+<button mat-raised-button (click)="openLoginDialog()">Login</button>
+
+<button mat-raised-button (click)="openCreateEvent()">Create Event</button>
 
 <div class="content-panel">
       <mat-card>
@@ -42,8 +45,21 @@
 <!--                    {{findEventTypeById(item.event_type_id)?.event_type_name}}-->
 <!--                    {{item.event_type_id}}-->
 <!--                  </mat-card>-->
+                  <div class="button-row">
+                    <div class="flex-container">
+                      <div class="button-container">
+                        <button mat-mini-fab color="accent" aria-label="Edit"
+                                (click)="openEditDialog(item)">
+                          <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-mini-fab color="warn" aria-label="Delete"
+                                (click)="openDeleteDialog()">
+                          <mat-icon>delete</mat-icon>
+                        </button>
+                      </div>
+                   </div>
+                  </div>
                 </div>
-
               </div>
 
               <ng-template ngxMatTimelineItemIcon>
