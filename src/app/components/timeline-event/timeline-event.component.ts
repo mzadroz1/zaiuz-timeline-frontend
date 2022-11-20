@@ -82,7 +82,7 @@ export class TimelineEventComponent implements OnInit {
       console.log(result===true)
       if(result === true) {
         this.timelineEventService.deleteTimelineEvent(item.id).subscribe({
-
+          next: this.ngOnInit
         })
       }
     })
