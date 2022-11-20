@@ -10,7 +10,7 @@ import {TimelineEventRequest} from "../models/timeline-event-request";
 })
 export class TimelineEventService {
 
-  private timelineEventListUrl = 'http://zaiuz-timeline.localhost/events'
+  private timelineEventListUrl = 'https://zaiuz-timeline.herokuapp.com/public/index.php/events'
 
   constructor(private httpClient: HttpClient) { }
 
