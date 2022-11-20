@@ -58,7 +58,10 @@ export class TimelineEventCreateComponent {
     }
 
     this.timelineEventService.createNewTimelineEvent(timelineEventRequest).subscribe({
-
+      next: () => {
+        this.dialogRef.close();
+        window.location.reload();
+      }
     })
   }
 

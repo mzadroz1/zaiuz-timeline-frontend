@@ -17,4 +17,13 @@ export class TimelineEventDeleteComponent {
   ) {
   }
 
+  deleteEvent(): void {
+    this.timelineEventService.deleteTimelineEvent(this.deletedTimelineEvent.id).subscribe({
+      next: () => {
+        this.dialogRef.close();
+        window.location.reload();
+      }
+    })
+  }
+
 }

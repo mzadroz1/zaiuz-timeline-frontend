@@ -62,7 +62,10 @@ export class TimelineEventEditComponent {
     }
 
     this.timelineEventService.editTimelineEvent(timelineEventRequest, this.editDialogData.timelineEvent.id).subscribe({
-
+      next: () => {
+        this.dialogRef.close();
+        window.location.reload();
+      }
     })
   }
 

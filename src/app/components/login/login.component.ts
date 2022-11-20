@@ -42,7 +42,9 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(loginRequest).subscribe({
       next: response => {
-        this.cookieService.set("access_token", response.access_token.toString())
+        this.cookieService.set("access_token", response.access_token.toString());
+        this.dialogRef.close();
+        window.location.reload();
       }
     })
 

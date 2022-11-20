@@ -53,7 +53,7 @@ export class TimelineEventComponent implements OnInit {
   }
 
   openLoginDialog(): void {
-    let dialogRef = this.dialog.open(LoginComponent);
+    this.dialog.open(LoginComponent);
 
   }
 
@@ -70,21 +70,13 @@ export class TimelineEventComponent implements OnInit {
         eventTypeList: this.eventTypeList
       },
       width: '500px'
-    })
+    });
   }
 
   openDeleteDialog(item: TimelineEvent) {
-    let dialogRef = this.dialog.open(TimelineEventDeleteComponent, {
+    this.dialog.open(TimelineEventDeleteComponent, {
       data: item,
       width: '500px'
     });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result===true)
-      if(result === true) {
-        this.timelineEventService.deleteTimelineEvent(item.id).subscribe({
-          next: this.ngOnInit
-        })
-      }
-    })
   }
 }
