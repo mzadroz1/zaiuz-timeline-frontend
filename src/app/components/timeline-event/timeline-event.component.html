@@ -19,34 +19,42 @@
                 class="custom-content"
                 style="min-width: 350px; max-width: 550px"
               >
-                <img [src]=item.img_url  alt="Missing photo"/>
-
                 <div>
                   <mat-card>
-                    <mat-card-title>
-                      {{item.event_name}}
-                    </mat-card-title>
+                    <mat-card-header>
+                      <mat-card-title-group>
+                        <mat-card-title>
+                          {{item.event_name}}
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                          {{findEventTypeById(item.event_type_id)?.event_type_name}}
+                        </mat-card-subtitle>
+
+                      </mat-card-title-group>
+                    </mat-card-header>
+                    <mat-card-content>
+
+                      <mat-accordion>
+                        <mat-expansion-panel hideToggle>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                              {{item.short_description}}
+                            </mat-panel-title>
+                          </mat-expansion-panel-header>
+                          <mat-card>
+                            <mat-card-header>
+                              <img [src]=item.img_url  alt="Missing photo"/>
+                            </mat-card-header>
+                            <mat-card-content>
+                              {{item.description}}
+                            </mat-card-content>
+                          </mat-card>
+
+                        </mat-expansion-panel>
+                      </mat-accordion>
+                    </mat-card-content>
                   </mat-card>
-                  <mat-accordion>
-                    <mat-expansion-panel hideToggle>
-                      <mat-expansion-panel-header>
-                        <mat-panel-title>
-                          {{item.short_description}}
-                        </mat-panel-title>
-                      </mat-expansion-panel-header>
-                      {{item.description}}
-                    </mat-expansion-panel>
-                  </mat-accordion>
-<!--                  <mat-card>-->
-<!--                    {{ item.short_description }}-->
-<!--                  </mat-card>-->
-<!--                  <mat-card>-->
-<!--                    {{ item.description }}-->
-<!--                  </mat-card>-->
-<!--                  <mat-card>-->
-<!--                    {{findEventTypeById(item.event_type_id)?.event_type_name}}-->
-<!--                    {{item.event_type_id}}-->
-<!--                  </mat-card>-->
+
                   <div class="button-row">
                     <div class="flex-container">
                       <div class="button-container">
@@ -65,7 +73,8 @@
               </div>
 
               <ng-template ngxMatTimelineItemIcon>
-                <div class="timeline-event-icon" [ngStyle]="{'background': findEventTypeById(item.event_type_id)?.color}">{{ idx + 1 }}</div>
+                <div class="timeline-event-icon" ><mat-icon [ngStyle]="{'color': findEventTypeById(item.event_type_id)?.color}">calendar_today</mat-icon></div>
+<!--                <div matBadge="{{ idx + 1 }}" matBadgeSize="large" [ngStyle]="{'background': findEventTypeById(item.event_type_id)?.color}"></div>-->
               </ng-template>
 
               <ng-template ngxMatTimelineItemLabel>
@@ -79,8 +88,9 @@
                       {{item.event_end_date.toString()}}
                     </div>
                   </div>
-                  <div class="event-type-label">{{findEventTypeById(item.event_type_id)?.event_type_name}}</div>
                 </div>
+<!--                  <div class="event-type-label"></div>-->
+<!--                </mat-chip>-->
               </ng-template>
             </ngx-mat-timeline-item>
           </ngx-mat-timeline>
