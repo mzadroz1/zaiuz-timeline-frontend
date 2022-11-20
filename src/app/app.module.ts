@@ -27,6 +27,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDialogModule} from "@angular/material/dialog";
 import { TimelineEventEditComponent } from './components/timeline-event-edit/timeline-event-edit.component';
+import { TimelineEventDeleteComponent } from './components/timeline-event-delete/timeline-event-delete.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TimelineEventEditComponent } from './components/timeline-event-edit/tim
     LoginComponent,
     TimelineEventComponent,
     TimelineEventCreateComponent,
-    TimelineEventEditComponent
+    TimelineEventEditComponent,
+    TimelineEventDeleteComponent
   ],
   imports: [
     BrowserModule,

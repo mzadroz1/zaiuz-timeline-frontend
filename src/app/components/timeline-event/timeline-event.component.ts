@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {LoginComponent} from "../login/login.component";
 import {TimelineEventCreateComponent} from "../timeline-event-create/timeline-event-create.component";
 import {TimelineEventEditComponent} from "../timeline-event-edit/timeline-event-edit.component";
+import {TimelineEventDeleteComponent} from "../timeline-event-delete/timeline-event-delete.component";
 
 @Component({
   selector: 'app-timeline-event',
@@ -57,7 +58,9 @@ export class TimelineEventComponent implements OnInit {
   }
 
   openCreateEvent(): void {
-    this.dialog.open(TimelineEventCreateComponent);
+    this.dialog.open(TimelineEventCreateComponent, {
+      width: '500px'
+    });
   }
 
   openEditDialog(item: TimelineEvent) {
@@ -65,11 +68,23 @@ export class TimelineEventComponent implements OnInit {
       data: {
         timelineEvent: item,
         eventTypeList: this.eventTypeList
-      }
+      },
+      width: '500px'
     })
   }
 
-  openDeleteDialog() {
+  openDeleteDialog(item: TimelineEvent) {
+    let dialogRef = this.dialog.open(TimelineEventDeleteComponent, {
+      data: item,
+      width: '500px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result===true)
+      if(result === true) {
+        this.timelineEventService.deleteTimelineEvent(item.id).subscribe({
 
+        })
+      }
+    })
   }
 }
