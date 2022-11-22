@@ -32,6 +32,7 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
+import { TimelineEventTableComponent } from './components/timeline-event-table/timeline-event-table.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatSortModule} from "@angular/material/sort";
     TimelineEventComponent,
     TimelineEventCreateComponent,
     TimelineEventEditComponent,
-    TimelineEventDeleteComponent
+    TimelineEventDeleteComponent,
+    TimelineEventTableComponent
   ],
   imports: [
     BrowserModule,

@@ -21,22 +21,8 @@ import {MatSort} from "@angular/material/sort";
 export class TimelineEventComponent implements OnInit {
 
   timelineEventList: TimelineEvent[] = [];
-
-  dataSource: MatTableDataSource<TimelineEvent>;
-  displayedColumns: string[] = [
-    'id',
-    'event_name',
-    'event_start_date',
-    'event_end_date',
-    'short_description',
-    'description',
-    'img_url',
-    'event_type_id'
-  ]
-
-  @ViewChild(MatSort) sort: MatSort;
-
   eventTypeList: EventType[] = [];
+
   constructor(private timelineEventService: TimelineEventService,
               private eventTypeService: EventTypeService,
               private cookieService: CookieService,
@@ -52,9 +38,6 @@ export class TimelineEventComponent implements OnInit {
       .subscribe({
         next: timelineEvents => {
           this.timelineEventList = timelineEvents;
-          this.dataSource = new MatTableDataSource<TimelineEvent>(timelineEvents);
-          this.dataSource.sort = this.sort;
-
         }
       })
   }
