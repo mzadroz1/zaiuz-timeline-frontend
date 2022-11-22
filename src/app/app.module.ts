@@ -30,6 +30,8 @@ import { TimelineEventEditComponent } from './components/timeline-event-edit/tim
 import { TimelineEventDeleteComponent } from './components/timeline-event-delete/timeline-event-delete.component';
 import {MatChipsModule} from "@angular/material/chips";
 import {MatBadgeModule} from "@angular/material/badge";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import {MatBadgeModule} from "@angular/material/badge";
     MatExpansionModule,
     MatDialogModule,
     MatChipsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true}

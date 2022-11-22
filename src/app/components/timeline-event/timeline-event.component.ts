@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {TimelineEvent} from "../../models/timeline-event";
 import {TimelineEventService} from "../../services/timeline-event.service";
 import {EventType} from "../../models/event-type";
@@ -10,6 +10,8 @@ import {TimelineEventEditComponent} from "../timeline-event-edit/timeline-event-
 import {TimelineEventDeleteComponent} from "../timeline-event-delete/timeline-event-delete.component";
 import {CookieService} from "ngx-cookie-service";
 import jwtDecode from 'jwt-decode'
+import {MatTableDataSource} from "@angular/material/table";
+import {MatSort} from "@angular/material/sort";
 
 @Component({
   selector: 'app-timeline-event',
@@ -19,8 +21,22 @@ import jwtDecode from 'jwt-decode'
 export class TimelineEventComponent implements OnInit {
 
   timelineEventList: TimelineEvent[] = [];
-  eventTypeList: EventType[] = [];
 
+  dataSource: MatTableDataSource<TimelineEvent>;
+  displayedColumns: string[] = [
+    'id',
+    'event_name',
+    'event_start_date',
+    'event_end_date',
+    'short_description',
+    'description',
+    'img_url',
+    'event_type_id'
+  ]
+
+  @ViewChild(MatSort) sort: MatSort;
+
+  eventTypeList: EventType[] = [];
   constructor(private timelineEventService: TimelineEventService,
               private eventTypeService: EventTypeService,
               private cookieService: CookieService,
@@ -36,6 +52,9 @@ export class TimelineEventComponent implements OnInit {
       .subscribe({
         next: timelineEvents => {
           this.timelineEventList = timelineEvents;
+          this.dataSource = new MatTableDataSource<TimelineEvent>(timelineEvents);
+          this.dataSource.sort = this.sort;
+
         }
       })
   }
