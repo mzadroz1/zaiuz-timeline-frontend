@@ -46,10 +46,15 @@
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Event type</mat-label>
-            <mat-select formControlName="event_type_name">
+            <mat-select formControlName="event_type_name" (selectionChange)="onSelectOption($event)">
+              <mat-select-trigger>
+                <span *ngIf="selectedEventType">
+                  {{ selectedEventType }}
+                </span>
+              </mat-select-trigger>
               <mat-option *ngFor="let eventType of eventTypeList" [value]="eventType.event_type_name">
                   <mat-label>
-                    {{eventType.event_type_name}} <div class="timeline-event-type-icon" [ngStyle]="{'background': eventType.color}"></div>
+                    {{eventType.event_type_name}} <mat-icon [ngStyle]="{'color': eventType.color}"> calendar_today </mat-icon>
                   </mat-label>
               </mat-option>
             </mat-select>

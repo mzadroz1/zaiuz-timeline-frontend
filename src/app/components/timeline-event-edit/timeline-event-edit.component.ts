@@ -18,7 +18,7 @@ export class TimelineEventEditComponent {
 
   timelineEventFormGroup: FormGroup;
   eventTypeList: EventType[] = [];
-  selectedEventType: EventType;
+  selectedEventType: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,6 +31,7 @@ export class TimelineEventEditComponent {
     @Inject(MAT_DIALOG_DATA) public editDialogData: EditDialogData
   ) {
     this.eventTypeList = editDialogData.eventTypeList;
+    this.selectedEventType = this.findEventTypeById(editDialogData.timelineEvent.event_type_id).event_type_name;
     this.timelineEventFormGroup = formBuilder.group(
       {
         event_name: new FormControl(editDialogData.timelineEvent.event_name, [Validators.required]),
@@ -91,6 +92,11 @@ export class TimelineEventEditComponent {
     }
     throw new Error("Event type not found");
   }
+
+  onSelectOption(event: any) {
+    this.selectedEventType = event.value;
+  }
+
 
 }
 

@@ -17,7 +17,7 @@ export class TimelineEventCreateComponent {
 
   timelineEventFormGroup: FormGroup;
   eventTypeList: EventType[] = [];
-  selectedEventType: EventType;
+  selectedEventType: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -79,4 +79,9 @@ export class TimelineEventCreateComponent {
     }
     throw new Error("Event type not found");
   }
+
+  onSelectOption(event: any) {
+    this.selectedEventType = event.value;
+  }
+
 }
