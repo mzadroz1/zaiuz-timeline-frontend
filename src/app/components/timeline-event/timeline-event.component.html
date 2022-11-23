@@ -9,6 +9,8 @@
       <div class="button-container">
         <button *ngIf="!isUserLoggedIn()" mat-raised-button (click)="openLoginDialog()">Login</button>
 
+        <button *ngIf="isUserLoggedIn()" mat-raised-button (click)="openEventTypesDialog()">Edit Event Types</button>
+
         <button *ngIf="isUserLoggedIn()" mat-raised-button (click)="openCreateEvent()">Create Event</button>
 
         <button *ngIf="isUserLoggedIn()" mat-raised-button (click)="logout()">Logout</button>

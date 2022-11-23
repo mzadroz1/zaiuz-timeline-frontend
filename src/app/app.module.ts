@@ -34,6 +34,8 @@ import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import { TimelineEventTableComponent } from './components/timeline-event-table/timeline-event-table.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { EventTypeCreateComponent } from './components/event-type-create/event-type-create.component';
+import { EventTypeDeleteComponent } from './components/event-type-delete/event-type-delete.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     TimelineEventCreateComponent,
     TimelineEventEditComponent,
     TimelineEventDeleteComponent,
-    TimelineEventTableComponent
+    TimelineEventTableComponent,
+    EventTypeCreateComponent,
+    EventTypeDeleteComponent
   ],
   imports: [
     BrowserModule,

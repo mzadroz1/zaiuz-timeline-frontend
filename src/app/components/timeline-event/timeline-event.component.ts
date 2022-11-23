@@ -10,8 +10,7 @@ import {TimelineEventEditComponent} from "../timeline-event-edit/timeline-event-
 import {TimelineEventDeleteComponent} from "../timeline-event-delete/timeline-event-delete.component";
 import {CookieService} from "ngx-cookie-service";
 import jwtDecode from 'jwt-decode'
-import {MatTableDataSource} from "@angular/material/table";
-import {MatSort} from "@angular/material/sort";
+import {EventTypesComponent} from "../event-types/event-types.component";
 
 @Component({
   selector: 'app-timeline-event',
@@ -94,5 +93,9 @@ export class TimelineEventComponent implements OnInit {
 
   logout() {
     this.cookieService.delete('access_token');
+  }
+
+  openEventTypesDialog() {
+    this.dialog.open(EventTypesComponent);
   }
 }
