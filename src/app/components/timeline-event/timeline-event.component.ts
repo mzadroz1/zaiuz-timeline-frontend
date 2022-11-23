@@ -38,6 +38,7 @@ export class TimelineEventComponent implements OnInit {
       .subscribe({
         next: timelineEvents => {
           this.timelineEventList = timelineEvents;
+          this.timelineEventList.sort((a, b) => (a.event_start_date < b.event_start_date ? -1 : 1));
         }
       })
   }

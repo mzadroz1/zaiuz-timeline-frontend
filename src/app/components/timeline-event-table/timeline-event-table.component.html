@@ -1,20 +1,20 @@
-<div>
+<div class="datepicker-row">
   <form [formGroup]="filterDatesFormGroup" (ngSubmit)="applyDateFilter()">
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="Date From"
-        [matDatepicker]="picker1"
-        formControlName="fromDate"
-        (click)="picker1.open()"
-      >
-      <mat-datepicker-toggle
-        matSuffix [for]="picker1"
-      ></mat-datepicker-toggle>
-      <mat-datepicker
-        #picker1></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
+      <mat-form-field class="datepicker-row">
+        <input
+          matInput
+          placeholder="Date From"
+          [matDatepicker]="picker1"
+          formControlName="fromDate"
+          (click)="picker1.open()"
+        >
+        <mat-datepicker-toggle
+          matSuffix [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker
+          #picker1></mat-datepicker>
+      </mat-form-field>
+    <mat-form-field class="datepicker-row">
       <input
         matInput
         placeholder="toDate"
@@ -28,13 +28,14 @@
       <mat-datepicker
         #picker2></mat-datepicker>
     </mat-form-field>
-    <button
-      class="button-form"
-      mat-raised-button color="accent"
-      [disabled]="isFilteringDisabled() || isFromDateEarlierThanToDate()">Submit</button>
-    <button mat-raised-button color="accent" type="button" (click)="clearFilters()" [disabled]="isFilteringDisabled()">Clear</button>
     <div>
       <mat-chip *ngIf="isFromDateEarlierThanToDate()">Invalid date range: start date must be earlier than end date!</mat-chip>
+    </div>
+    <div class="button-row">
+      <button
+        mat-raised-button color="accent"
+        [disabled]="isFilteringDisabled() || isFromDateEarlierThanToDate()">Submit</button>
+      <button mat-raised-button color="accent" type="button" (click)="clearFilters()" [disabled]="isFilteringDisabled()">Clear</button>
     </div>
   </form>
 </div>

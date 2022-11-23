@@ -33,6 +33,7 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import { TimelineEventTableComponent } from './components/timeline-event-table/timeline-event-table.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { TimelineEventTableComponent } from './components/timeline-event-table/t
     MatChipsModule,
     MatBadgeModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatToolbarModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true}

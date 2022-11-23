@@ -122,6 +122,7 @@ export class TimelineEventTableComponent implements OnInit {
       .subscribe({
         next: timelineEvents => {
           this.timelineEventList = timelineEvents;
+          this.timelineEventList.sort((a, b) => (a.event_start_date < b.event_start_date ? -1 : 1));
           this.dataSource = new MatTableDataSource<TimelineEvent>(timelineEvents);
           this.dataSource.sort = this.sort;
           this.dataSource.sortingDataAccessor = (data: any, sortHeaderId: string): string => {

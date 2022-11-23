@@ -8,14 +8,24 @@ img {
 
 .button-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   width: 220px;
 }
 
 .button-row {
   display: table-cell;
   max-width: 600px;
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
+.datepicker-row {
+  display: table-cell;
+  max-width: 600px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
 
 .button-row .mat-mdc-button-base {
   margin: 8px 8px 8px 0;
